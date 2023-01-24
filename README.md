@@ -12,3 +12,10 @@ Requirements :
     2. Ask you to enter needed values for project name and other informations
     3. Install dependencies
     4. Launch the virtual environment to get you started !
+
+## Contribute
+1. Fork this repository
+
+## License
+This software is licensed under the GNU AGPLv3, which states that **you can use, modify and redistribute this software as long as you publish the modifications under the same license.**
+For more information, check [here](https://www.gnu.org/licenses/agpl-3.0.html)
