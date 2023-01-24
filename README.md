@@ -1,6 +1,8 @@
 # python-app
 This is a project of the company [Open Source Politics](https://opensourcepolitics.eu), based on the [python-app template](https://github.com/OpenSourcePolitics/python-app/).
 
+DESCRIPTION
+
 ## Getting started
 Requirements : 
 - [**Python 3**](https://www.python.org/downloads/)

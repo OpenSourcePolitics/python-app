@@ -28,7 +28,7 @@ while [[ -z "$project_name" ]]; do
     echo "Give the name of your project in snake_case: "
     read project_name
 done
-sed -i "s/PROJECT_NAME/$project_name/g" pyproject.toml
+sed -i "s/python_app/$project_name/g" pyproject.toml
 sed -i "s/python_app/$project_name/g" README.md
 mv python_app/ "$project_name"
 sed -i "s/python_app/$project_name/g" tests/test_dummy.py
@@ -40,6 +40,7 @@ while [[ -z "$description" ]]; do
     read description
 done
 sed -i "s/DESCRIPTION/$description/g" pyproject.toml
+sed -i "s/DESCRIPTION/$description/g" README.md
 
 ## Project information in pyproject.toml
 ### Name of the developer
