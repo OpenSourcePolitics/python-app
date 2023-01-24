@@ -23,31 +23,31 @@ else
 fi
 
 ## Project name
-# while [[ -z "$project_name" ]]; do
-#     echo "Give the name of your project in snake_case: "
-#     read project_name
-# done
-# sed -i "s/NAME/$project_name/" pyproject.toml
-# mv python_app/ "$project_name"
+while [[ -z "$project_name" ]]; do
+    echo "Give the name of your project in snake_case: "
+    read project_name
+done
+sed -i "s/NAME/$project_name/" pyproject.toml
+mv python_app/ "$project_name"
 
 ## Project description
-# while [[ -z "$description" ]]; do
-#     echo "Give the name of your project in snake_case: "
-#     read description
-# sed -i "s/DESCRIPTION/$description/g" pyproject.toml
-# done
+while [[ -z "$description" ]]; do
+    echo "Give the name of your project in snake_case: "
+    read description
+sed -i "s/DESCRIPTION/$description/g" pyproject.toml
+done
 
-# # Project information in pyproject.toml
+## Project information in pyproject.toml
 echo "Give your name (default: dev): "
 read name
 if [[ ! -z "$name" ]]
 then
-    sed "s/NAME/$name/" pyproject.toml
+    sed -i "s/NAME/$name/" pyproject.toml
 fi
 
 echo "Give your e-mail (default: contact@opensourcepolitics.eu): "
 read email
 if [[ ! -z "$name" ]]
 then
-    sed "s/EMAIL/$email/" pyproject.toml
+    sed -i "s/EMAIL/$email/" pyproject.toml
 fi
