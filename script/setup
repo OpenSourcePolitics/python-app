@@ -49,7 +49,7 @@ read name
 if [[ -z "$name" ]]; then
     name=$default_name
 fi
-sed -i "s/NAME/$name/" pyproject.toml
+sed -i "s/dev_name/$name/" pyproject.toml
 
 ### Email of the developer
 default_email="contact@opensourcepolitics.eu"
@@ -58,7 +58,7 @@ read email
 if [[ -z "$email" ]]; then
     email=$default_email
 fi
-sed -i "s/EMAIL/$email/" pyproject.toml
+sed -i "s/email@example\.com/$email/" pyproject.toml
 
 # Setup environment
 poetry install

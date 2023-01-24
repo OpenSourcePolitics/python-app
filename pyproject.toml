@@ -2,7 +2,7 @@
 name = "python_app"
 version = "0.1.0"
 description = "DESCRIPTION"
-authors = ["NAME<EMAIL>"]
+authors = ["dev_name <email@example.com>"]
 readme = "README.md"
 packages = [{include = "python_app"}]
 
