@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Rename project
+while [ -z "$project_name "]
+    echo "Give the name of your project in snake_case: "
+    read project_name
+sed 's/python-app/$project_name'
+mv python_app $project_name
+
+# Enter description
+while [ -z "$project_name "]
+    echo "Give the name of your project in snake_case: "
+    read project_name
+sed 's/python-app/$project_name'
+
+# Project information in pyproject.toml
+echo "Give your name (default: dev): "
+read name
+if ![[ -z "$name" ]]
+then
+    sed 's/NAME/$name'
+fi
+
+echo "Give your e-mail (default: contact@opensourcepolitics.eu)"
+read email
+if ![[ -z "$name" ]]
+then
+    sed 's/EMAIL/$email'
+fi
+
+
+
