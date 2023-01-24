@@ -41,15 +41,21 @@ sed -i "s/DESCRIPTION/$description/g" pyproject.toml
 
 ## Project information in pyproject.toml
 ### Name of the developer
-name="dev"
-echo "Give your name (default: $name): "
+default_name="dev"
+echo "Give your name (default: $default_name): "
 read name
+if [[ -z "$name" ]]; then
+    name=$default_name
+fi
 sed -i "s/NAME/$name/" pyproject.toml
 
 ### Email of the developer
-email="contact@opensourcepolitics.eu"
-echo "Give your e-mail (default: $email): "
+default_email="contact@opensourcepolitics.eu"
+echo "Give your e-mail (default: $default_email): "
 read email
+if [[ -z "$email" ]]; then
+    email=$default_email
+fi
 sed -i "s/EMAIL/$email/" pyproject.toml
 
 # Setup environment
