@@ -33,6 +33,7 @@ sed -i "s/python_app/$project_name/g" README.md
 mv python_app/ "$project_name"
 sed -i "s/python_app/$project_name/g" tests/test_dummy.py
 sed -i "s/python_app/$project_name/g" pytest.ini
+sed -i "s/python_app/$project_name/g" .github/workflows/lint.yml
 
 ## Project description
 while [[ -z "$description" ]]; do
