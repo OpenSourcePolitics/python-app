@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Requirements are set
+## Python
+python_is_here=$(python3 --version)
+if [[ -z "$python_is_here" ]]
+then
+    echo "Python3 is not installed! Please check https://www.python.org/downloads/"
+    exit 1
+else
+    echo "Python 3 already installed !"
+fi
+
+## Poetry
+poetry_is_here=$(poetry --version)
+if [[ -z "$poetry_is_here" ]]
+then
+    echo "Poetry not installed. Launching installation..."
+    curl -sSL https://install.python-poetry.org | python3 -
+    echo "Poetry installed !"
+else
+    echo "Poetry already installed !"
+fi
+
+## Project name
+# while [[ -z "$project_name" ]]; do
+#     echo "Give the name of your project in snake_case: "
+#     read project_name
+# done
+# sed -i "s/NAME/$project_name/" pyproject.toml
+# mv python_app/ "$project_name"
+
+## Project description
+# while [[ -z "$description" ]]; do
+#     echo "Give the name of your project in snake_case: "
+#     read description
+# sed -i "s/DESCRIPTION/$description/g" pyproject.toml
+# done
+
+# # Project information in pyproject.toml
+echo "Give your name (default: dev): "
+read name
+if [[ ! -z "$name" ]]
+then
+    sed "s/NAME/$name/" pyproject.toml
+fi
+
+echo "Give your e-mail (default: contact@opensourcepolitics.eu): "
+read email
+if [[ ! -z "$name" ]]
+then
+    sed "s/EMAIL/$email/" pyproject.toml
+fi
