@@ -64,4 +64,5 @@ sed -i "s/email@example\.com/$email/" pyproject.toml
 # Setup environment
 poetry install
 poetry shell
+pre-commit install
 ggshield auth login
