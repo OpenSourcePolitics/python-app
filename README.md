@@ -14,19 +14,16 @@ Requirements :
     4. Launch the virtual environment to get you started
     5. Setup GGShield for secret scan
 
+### Development scripts
+- `./script/lint` to run flake8 against your code
+- `./script/test` to run pytest against your code
+
 ### Hooks
 This repository is setup by design with [`pre-commit`](https://pre-commit.com/), a tool that ease the installation of git hooks. By default, hooks currently enabled are:
 - linting : using [flake8](https://github.com/pycqa/flake8)
 - check for secrets : using [git guardian](https://docs.gitguardian.com/ggshield-docs/integrations/git-hooks/pre-commit)
 
 If you want to modify or add your own hooks, please check [the pre-commit documentation](https://pre-commit.com/)
-
-### CI
-This repository is setup by design with [`github-actions`](https://docs.github.com/en/actions), a tool integrated to GitHub that prevents faulting code to be merged into the `main` branch.
-By default, workflows currently enabled are:
-- linting
-- check for secrets
-- tests
 
 ## Contribute
 - [Create an issue](https://github.com/OpenSourcePolitics/PROJECT_NAME/issues) to report a bug/ask for a new feature
