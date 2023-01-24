@@ -22,32 +22,36 @@ else
     echo "Poetry already installed !"
 fi
 
+# Project informations
 ## Project name
 while [[ -z "$project_name" ]]; do
     echo "Give the name of your project in snake_case: "
     read project_name
 done
-sed -i "s/NAME/$project_name/" pyproject.toml
+sed -i "s/PROJECT_NAME/$project_name/g" pyproject.toml
+sed -i "s/python_app/$project_name/g" README.md
 mv python_app/ "$project_name"
 
 ## Project description
 while [[ -z "$description" ]]; do
-    echo "Give the name of your project in snake_case: "
+    echo "Give the description of your project: "
     read description
-sed -i "s/DESCRIPTION/$description/g" pyproject.toml
 done
+sed -i "s/DESCRIPTION/$description/g" pyproject.toml
 
 ## Project information in pyproject.toml
-echo "Give your name (default: dev): "
+### Name of the developer
+name="dev"
+echo "Give your name (default: $name): "
 read name
-if [[ ! -z "$name" ]]
-then
-    sed -i "s/NAME/$name/" pyproject.toml
-fi
+sed -i "s/NAME/$name/" pyproject.toml
 
-echo "Give your e-mail (default: contact@opensourcepolitics.eu): "
+### Email of the developer
+email="contact@opensourcepolitics.eu"
+echo "Give your e-mail (default: $email): "
 read email
-if [[ ! -z "$name" ]]
-then
-    sed -i "s/EMAIL/$email/" pyproject.toml
-fi
+sed -i "s/EMAIL/$email/" pyproject.toml
+
+# Setup environment
+poetry install
+poetry shell
