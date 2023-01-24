@@ -63,3 +63,4 @@ sed -i "s/EMAIL/$email/" pyproject.toml
 # Setup environment
 poetry install
 poetry shell
+ggshield auth login

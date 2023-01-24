@@ -11,7 +11,8 @@ Requirements :
     1. Check requirements
     2. Ask you to enter needed values for project name and other informations
     3. Install dependencies
-    4. Launch the virtual environment to get you started !
+    4. Launch the virtual environment to get you started
+    5. Setup GGShield for secret scan
 
 ### Hooks
 This repository is setup by design with [`pre-commit`](https://pre-commit.com/), a tool that ease the installation of git hooks. By default, hooks currently enabled are:
