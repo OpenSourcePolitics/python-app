@@ -7,6 +7,7 @@ DESCRIPTION
 Requirements : 
 - [**Python 3**](https://www.python.org/downloads/)
 - [Poetry](https://python-poetry.org) (TL;DR run `curl -sSL https://install.python-poetry.org | python3 -` should work)
+- A [Git Guardian](https://dashboard.gitguardian.com/auth/login) account. You can create one by using GitHub SSO. 
 
 1. Clone repository : `git clone https://github.com/OpenSourcePolitics/python_app.git`)
 2. Setup repository : `./script/setup`. Launching the script will
