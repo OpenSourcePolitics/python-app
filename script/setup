@@ -22,15 +22,25 @@ else
     echo "Poetry already installed !"
 fi
 
+# Get OS version for sed management
+os=$OSTYPE
+if [[ "$os" == "darwin"* ]]; then
+    brew install gnu-sed
+    alias sed=gsed
+fi
+
 # Project informations
 ## Project name
 while [[ -z "$project_name" ]]; do
     echo "Give the name of your project in snake_case: "
     read project_name
 done
-sed -i "s/PROJECT_NAME/$project_name/g" pyproject.toml
+sed -i "s/python_app/$project_name/g" pyproject.toml
 sed -i "s/python_app/$project_name/g" README.md
 mv python_app/ "$project_name"
+sed -i "s/python_app/$project_name/g" tests/test_main.py
+sed -i "s/python_app/$project_name/g" pytest.ini
+sed -i "s/python_app/$project_name/g" .github/workflows/lint.yml
 
 ## Project description
 while [[ -z "$description" ]]; do
@@ -38,20 +48,28 @@ while [[ -z "$description" ]]; do
     read description
 done
 sed -i "s/DESCRIPTION/$description/g" pyproject.toml
+sed -i "s/DESCRIPTION/$description/g" README.md
 
 ## Project information in pyproject.toml
 ### Name of the developer
-name="dev"
-echo "Give your name (default: $name): "
+default_name="dev"
+echo "Give your name (default: $default_name): "
 read name
-sed -i "s/NAME/$name/" pyproject.toml
+if [[ -z "$name" ]]; then
+    name=$default_name
+fi
+sed -i "s/dev_name/$name/" pyproject.toml
 
 ### Email of the developer
-email="contact@opensourcepolitics.eu"
-echo "Give your e-mail (default: $email): "
+default_email="contact@opensourcepolitics.eu"
+echo "Give your e-mail (default: $default_email): "
 read email
-sed -i "s/EMAIL/$email/" pyproject.toml
+if [[ -z "$email" ]]; then
+    email=$default_email
+fi
+sed -i "s/email@example\.com/$email/" pyproject.toml
 
 # Setup environment
 poetry install
-poetry shell
+poetry run pre-commit install
+poetry run ggshield auth login
